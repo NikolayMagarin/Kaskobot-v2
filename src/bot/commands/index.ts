@@ -6,6 +6,7 @@ import disable from './disable';
 import replyRate from './replyRate';
 import _delete from './delete';
 import meme from './meme';
+import clear from './clear';
 
 export type CommandHandler = Parameters<
   Telegraf<AdditionalContext>['command']
@@ -13,7 +14,15 @@ export type CommandHandler = Parameters<
 export type Command = { name: string; handler: CommandHandler };
 
 export function handleCommands(bot: Telegraf<AdditionalContext>) {
-  const commands: Command[] = [me, enable, disable, replyRate, _delete, meme];
+  const commands: Command[] = [
+    me,
+    enable,
+    disable,
+    replyRate,
+    _delete,
+    meme,
+    clear,
+  ];
 
   commands.forEach((command) => {
     bot.command(command.name, command.handler);

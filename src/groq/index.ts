@@ -1,5 +1,5 @@
-import Groq, { RateLimitError } from 'groq-sdk';
-import { APIPromise, RequestOptions } from 'groq-sdk/core';
+import Groq, { InternalServerError, RateLimitError } from 'groq-sdk';
+import { RequestOptions } from 'groq-sdk/core';
 import { Stream } from 'groq-sdk/lib/streaming';
 import {
   ChatCompletion,
@@ -124,6 +124,10 @@ function aiChat(
           } seconds"`
         );
         return aiChat(body, usingModelPriotity, options);
+      } else if (error instanceof InternalServerError) {
+        return new Promise((resolve) => setTimeout(resolve, 3000)).then(() =>
+          aiChat(body, usingModelPriotity, options)
+        );
       }
       throw error;
     }) as AIResponse;

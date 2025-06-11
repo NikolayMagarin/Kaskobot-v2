@@ -65,7 +65,7 @@ function createDefaultSettings(): ChatSettingsData {
   return {
     bot: {
       enabled: true,
-      triggerReplyChance: 0.75,
+      triggerReplyChance: 0.6,
       preferredUserNames: {},
     },
   };
