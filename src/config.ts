@@ -20,7 +20,7 @@ interface Config {
 }
 
 export const config: Config = {
-  env: process.env.NODE_ENV === 'prod' ? 'prod' : 'dev',
+  env: process.env.ENVIRONMENT === 'prod' ? 'prod' : 'dev',
   firebaseClientEmail: getEnvValue('FIREBASE_CLIENT_EMAIL'),
   firebasePrivateKey: getEnvValue('FIREBASE_PRIVATE_KEY'),
   firebaseProjectId: getEnvValue('FIREBASE_PROJECT_ID'),

@@ -29,7 +29,6 @@ export const useSelfPingSecret: RequestHandler = (req, res, next) => {
 
 export const selfPingHandler: RequestHandler = (req, res) => {
   if (selfPingConfig.enabled) {
-    console.log('[server] ping');
     setTimeout(ping, selfPingConfig.minInterval);
   }
   res.json({ ok: true, status: 'alive' });
