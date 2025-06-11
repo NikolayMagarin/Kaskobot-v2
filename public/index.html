@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Здесь пока ничего нет</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100dvh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Arial', sans-serif;
+        background-color: #121212;
+        color: #e0e0e0;
+      }
+      .message {
+        text-align: center;
+        font-size: 2rem;
+        opacity: 0;
+        animation: fadeIn 1.5s ease-in-out forwards;
+      }
+      .subtext {
+        text-align: center;
+        margin-top: 1rem;
+        font-size: 1rem;
+        color: #888;
+        opacity: 0;
+        animation: fadeIn 2s ease-in-out 0.5s forwards;
+      }
+      .content {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .backtext {
+        overflow: hidden;
+        color: #ffffff01;
+        font-family: fantasy;
+        font-size: calc(100vw / 6);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        rotate: -20deg;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div class="backtext">Каскобот</div>
+      <div class="message">Здесь пока ничего нет</div>
+      <div class="subtext">Но скоро появится что-то интересное...</div>
+    </div>
+  </body>
+</html>
