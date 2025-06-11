@@ -1,0 +1,29 @@
+{
+  "name": "kaskobot-2.0",
+  "version": "1.0.0",
+  "main": "src/main.ts",
+  "devDependencies": {
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2"
+  },
+  "scripts": {
+    "watch": "npx nodemon --watch \"src/**\" --ext \"ts\" src/main.ts",
+    "build": "npx tsc",
+    "start": "node dist/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "assemblyai": "^4.13.2",
+    "dayjs": "^1.11.13",
+    "dotenv": "^16.5.0",
+    "firebase-admin": "^13.4.0",
+    "groq-sdk": "^0.23.0",
+    "telegraf": "^4.16.3",
+    "typescript": "^5.8.3"
+  }
+}
