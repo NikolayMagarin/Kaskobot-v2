@@ -16,6 +16,9 @@ bot.use(async (ctx, next) => {
   if (ctx.chat && allowedChats?.includes(ctx.chat.id)) {
     next();
   } else {
+    console.log(
+      `[bot] Chat ${ctx.chat?.id} is not in allowed chat list [${allowedChats}]`
+    );
     ctx.reply(
       'Функционал бота не доступен в этом чате\nПроизошла ошибка? Пиши @NikolayMagarin'
     );
