@@ -7,7 +7,7 @@ type WriteOperation = {
 };
 
 const writeQueue: WriteOperation[] = [];
-const BATCH_INTERVAL = 10_000;
+const BATCH_INTERVAL = 10_000; // every 10 seconds
 const MAX_BATCH_SIZE = 500;
 
 export function queueWrite(collection: string, docId: string, data: any) {
