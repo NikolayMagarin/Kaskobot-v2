@@ -1,5 +1,8 @@
 import { server } from '.';
+import { RequestHandler } from 'express';
 
-server.get('/ping', (req, res) => {
-  res.status(200).send('pong');
-});
+export function ping(): RequestHandler {
+  return (req, res) => {
+    res.status(200).send('pong');
+  };
+}
