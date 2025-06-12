@@ -1,4 +1,3 @@
-import { server } from '.';
 import { RequestHandler } from 'express';
 
 export function ping(): RequestHandler {

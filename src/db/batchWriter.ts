@@ -6,19 +6,25 @@ type WriteOperation = {
   data: any;
 };
 
-const writeQueue: WriteOperation[] = [];
+const writeQueue = new Map<string, WriteOperation>();
 const BATCH_INTERVAL = 10_000; // every 10 seconds
 const MAX_BATCH_SIZE = 500;
 
 export function queueWrite(collection: string, docId: string, data: any) {
-  writeQueue.push({ collection, docId, data });
+  const key = `${collection}/${docId}`;
+  writeQueue.set(key, { collection, docId, data });
 }
 
 setInterval(async () => {
-  if (writeQueue.length === 0) return;
+  if (writeQueue.size === 0) return;
 
   const batch = admin.firestore().batch();
-  const operations = writeQueue.splice(0, MAX_BATCH_SIZE);
+  const operations = Array.from(writeQueue.values()).slice(0, MAX_BATCH_SIZE);
+
+  operations.forEach((op) => {
+    const key = `${op.collection}/${op.docId}`;
+    writeQueue.delete(key);
+  });
 
   for (const op of operations) {
     const ref = admin.firestore().collection(op.collection).doc(op.docId);
