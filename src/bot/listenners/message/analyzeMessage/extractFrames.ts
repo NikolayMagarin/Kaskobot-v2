@@ -1,5 +1,8 @@
 import { path as ffmpegPath } from '@ffmpeg-installer/ffmpeg';
 import { spawn } from 'child_process';
+import { config } from '../../../../config';
+
+const FFMPEG_COMMAND = config.env === 'prod' ? 'ffmpeg' : ffmpegPath;
 
 export async function extractVideoFramesFromURL(
   videoUrl: string,
@@ -33,7 +36,7 @@ function ffmpegExtractFramesToBuffer(url: string, fps: number) {
     '-',
   ];
 
-  const ffmpeg = spawn(ffmpegPath, args, {
+  const ffmpeg = spawn(FFMPEG_COMMAND, args, {
     stdio: ['ignore', 'pipe', 'ignore'],
   });
 
