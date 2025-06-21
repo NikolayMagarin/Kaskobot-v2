@@ -68,5 +68,8 @@ function createDefaultSettings(): ChatSettingsData {
       triggerReplyChance: 0.6,
       preferredUserNames: {},
     },
+    chat: {
+      members: [],
+    },
   };
 }

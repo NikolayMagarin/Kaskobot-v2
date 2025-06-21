@@ -18,6 +18,9 @@ export interface ChatSettingsData {
     triggerReplyChance: number;
     preferredUserNames: Record<number, string>;
   };
+  chat: {
+    members: string[];
+  };
 }
 
 export type ChatHistoryMessageContent =
