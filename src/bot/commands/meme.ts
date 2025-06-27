@@ -28,7 +28,7 @@ async function loadMemes(chunkQuantity = 1) {
       );
 
       const matches = res.matchAll(
-        /src="https:\/\/www\.cdn\.memify\.ru\/media\/.{10,30}\/\d{5,10}\/.{5,30}\.jpg"/g
+        /src="https:\/\/www\.vcdn\.memify\.ru\/media\/.{10,30}\/\d{5,10}\/.{5,30}\.jpg"/g
       );
       const links = [...matches]
         .map((match) => match[0])
