@@ -1,6 +1,5 @@
 export interface BotConfigData {
   allowedChats: number[];
-  botId: number;
 }
 
 export interface ChatHistoryData {

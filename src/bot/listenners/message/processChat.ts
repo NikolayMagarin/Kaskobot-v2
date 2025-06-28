@@ -1,6 +1,5 @@
 import { ChatCompletionContentPartImage } from 'groq-sdk/resources/chat/completions';
 import {
-  getBotId,
   getChatHistory,
   getChatSettings,
   setChatHistory,
@@ -57,7 +56,7 @@ export async function processChat(chatId: number) {
   history = {
     messages: history.messages.concat({
       id: messageId,
-      sender: { id: (await getBotId()) || 0, name: 'Каскобот' },
+      sender: { id: (await tg.getMe()).id, name: 'Каскобот' },
       content: { type: 'text', text: botMessage },
       date: Date.now(),
     }),

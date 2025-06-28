@@ -18,10 +18,6 @@ export function getBotConfig() {
   return getDocument('configs', 'bot');
 }
 
-export async function getBotId() {
-  return (await getBotConfig())?.botId;
-}
-
 export async function getChatSettings(chatId: number) {
   let settings = await getDocument('chatsettings', chatId.toString());
   if (!settings) {

@@ -6,7 +6,7 @@ const handler: CommandHandler = async (ctx) => {
     ctx.message.reply_to_message &&
     ctx.message.reply_to_message.chat.id === ctx.message.chat.id &&
     ctx.message.reply_to_message.from &&
-    ctx.message.reply_to_message.from.id === (await getBotConfig())?.botId
+    ctx.message.reply_to_message.from.id === ctx.botInfo.id
   ) {
     try {
       await ctx.deleteMessage(ctx.message.reply_to_message.message_id);
